@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "members")
 @Getter @Setter
+@Table(name = "members")
 public class Member {
 
     @Id @GeneratedValue
@@ -20,5 +20,7 @@ public class Member {
     @Embedded
     private Address address;
 
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Order> orders = new ArrayList<>();
+
 }
