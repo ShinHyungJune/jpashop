@@ -27,7 +27,11 @@ public class MemberRepository {
     }
 
     public void save(Member member){
-        em.persist(member);
+        if(member.getId() == null){
+            em.persist(member); // 추가
+        }else{
+            em.merge(member); // id가 있다면 이미 있는 데이터이므로 update 개념으로 작업해야됨
+        }
     }
 
     public Member find(Long id){

@@ -1,0 +1,6 @@
+# db설정 비우면 알아서 memory db로 테스트 진행해줌
+
+logging:
+  lebel:
+    org.hiberante.SQL: debug
+    org.hibernate.type: trace
